@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './HooksApp'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+async function dynamicImport() {
+  const { default: greet, PI } = await import('./module')
+  greet()
+  console.warn(PI)
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+dynamicImport()
